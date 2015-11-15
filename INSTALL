@@ -1,0 +1,15 @@
+Quick install notes:
+
+Assumptions: a fresh centos 7 install, root access, internet access
+
+run as root:
+
+yum -y install docker git
+systemctl enable docker
+systemctl start docker
+git clone http://github.com/proteinprospector/prospector-docker
+cd prospector-docker
+scripts/build_all.sh
+scripts/deploy_storage.sh
+scripts/deploy.sh
+
