@@ -4,9 +4,10 @@ FROM c7-systemd
 MAINTAINER Pascal Wassam
 
 RUN yum install -y epel-release
-RUN yum install -y mariadb openmpi openssh-clients strace httpd p7zip unrar ghostscript R-base perl-XML-Simple telnet rsyslog perl-CPAN
-RUN (echo y;echo o conf prerequisites_policy follow;echo o conf commit)|cpan ; exit 0
-RUN echo y | cpan install Mail::Sendmail
+RUN yum install -y mariadb openmpi openssh-clients strace httpd p7zip unrar ghostscript R-base perl-XML-Simple telnet rsyslog 
+#RUN yum install -y perl-CPAN
+#RUN (echo y;echo o conf prerequisites_policy follow;echo o conf commit)|cpan ; exit 0
+#RUN echo y | cpan install Mail::Sendmail
 RUN yum clean all 
 RUN groupadd -g 10000 ppsvr
 RUN adduser -u 10000 -g ppsvr ppsvr -m 
