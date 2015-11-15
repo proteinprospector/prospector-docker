@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 set -e
 
 # check for required mounts
@@ -29,6 +29,10 @@ sed -e "s/@@DB_HOST@@/$PP_DB_PORT_3306_TCP_ADDR/" \
     -e "s/@@DB_USER@@/$PP_DB_USER/" \
     -e "s/@@DB_NAME@@/$PP_DB_NAME/" \
     $PPBASE/web/params/info_template.txt > $PPBASE/web/params/info.txt
+
+sed -e "s/@@QUANT_SERVER@@/$PP_QUANT_SERVER/" \
+       $PPBASE/etc/prospector.conf > $PPBASE/etc/_prospector.conf
+mv $PPBASE/etc/_prospector.conf $PPBASE/etc/prospector.conf
 
 # proceed with execution
 exec "$@"

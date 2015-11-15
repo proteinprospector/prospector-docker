@@ -12,8 +12,6 @@ RUN groupadd -g 10000 ppsvr
 RUN adduser -u 10000 -g ppsvr ppsvr -m 
 RUN systemctl enable httpd.service
 
-ADD docker-entrypoint.sh / 
-ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Host must be set at runtime
 ENV PP_DB_HOST None  
@@ -21,14 +19,16 @@ ENV PP_DB_PASS pp
 ENV PP_DB_USER pp
 ENV PP_DB_NAME ppsd
 
-# IP address of quantification server to forward to. XXX NOT IMPLMENTED
-ENV PP_QUANT_SERVER None
-
-CMD ["/usr/sbin/init"]
+# IP address of quantification server to forward to, or None
+ENV PP_QUANT_SERVER 172.16.0.2
 
 # install prospector
 ADD prospector.tar.gz /tmp
 RUN mv /tmp/prospector/* /var/www/
 RUN rmdir /tmp/prospector
 RUN ln -s /var/www/etc/prospector.conf /etc/httpd/conf.d/prospector.conf
+
+CMD ["/usr/sbin/init"]
+ADD docker-entrypoint.sh / 
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
