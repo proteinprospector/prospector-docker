@@ -10,8 +10,8 @@ for d in "/prospector_data" "/prospector_seqdb" "/prospector_params/params" ; do
 done
 
 # make sure that required subdirectories exist in /prospector_data
-mkdir -p /prospector_data/repository /prospector_data/raw /prospector_data/peaklists /prospector_data/repository/temp
-chown 10000:10000 /prospector_data/repository /prospector_data/raw /prospector_data/peaklists /prospector_data/repository/temp
+#mkdir -p /prospector_data/repository /prospector_data/raw /prospector_data/peaklists /prospector_data/repository/temp
+#chown 10000:10000 /prospector_data/repository /prospector_data/raw /prospector_data/peaklists /prospector_data/repository/temp
 
 # prospector install base directory
 PPBASE="/var/www"
