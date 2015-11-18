@@ -11,7 +11,7 @@ echo -n "pp_node: "
 docker run --name pp_node \
 --privileged \
 -v /exports/data3/seqdb:/prospector_seqdb \
--v /exports/data3/params:/prospector_params \
+-v /exports/data3/params:/prospector_params/params \
 -v /exports/data:/prospector_data \
 -v /exports/prospector/repository:/prospector_data/repository \
 -e PP_DB_PORT_3306_TCP_ADDR=169.230.19.249 \
