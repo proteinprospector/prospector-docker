@@ -15,6 +15,6 @@ docker run --name pp_node \
 -v /exports/data3/params:/prospector_params/params \
 -v /exports/data:/prospector_data \
 -v /exports/prospector/repository:/prospector_data/repository \
--e PP_DB_PORT_3306_TCP_ADDR=169.230.19.249 \
+-e PP_DB_PORT_3306_TCP_ADDR=sargent.ucsf.edu \
 -d prospector-node /btag_start.sh
 
