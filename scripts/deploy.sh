@@ -32,9 +32,3 @@ if [ ${PRIVINTERFACE} != "None" ]; then
 	-p 445:445 -d prospector-samba
 fi
 
-# build databases
-docker exec -ti pp_node curl ftp://ftp.ncbi.nih.gov/blast/db/FASTA/swissprot.gz -o /prospector_seqdb/SwissProt.2015.01.01.fasta.gz
-docker exec -ti pp_node gunzip /prospector_seqdb/SwissProt.2015.01.01.fasta.gz
-docker exec -ti pp_node /var/lib/prospector/web/cgi-bin/faindex.cgi - create_database_indicies=1 database=SwissProt.2015.01.01
-docker exec -ti pp_node /var/lib/prospector/web/cgi-bin/faindex.cgi - random_database=1 database=SwissProt.2015.01.01
-
