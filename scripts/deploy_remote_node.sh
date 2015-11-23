@@ -10,6 +10,7 @@ echo Using configuration: ${CONFIG}
 echo -n "pp_node: "
 docker run --name pp_node \
 --privileged \
+-e PP_CPUS=`nproc` \
 -v /exports/data3/seqdb:/prospector_seqdb \
 -v /exports/data3/params:/prospector_params/params \
 -v /exports/data:/prospector_data \
